@@ -1,12 +1,17 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 
+	"github.com/Yogi-1996/library-management/internal/config"
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
+
+	config := config.LoadConfig()
+	fmt.Print(config)
 
 	router := gin.Default()
 
@@ -16,5 +21,5 @@ func main() {
 			"status":  "sucess",
 		})
 	})
-	router.Run(":8080")
+	router.Run(":" + config.App.Port)
 }
