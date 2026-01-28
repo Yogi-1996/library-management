@@ -42,7 +42,7 @@ func LoadConfig() *Config {
 	flags := flag.String("env", "", "enviorment variable")
 	flag.Parse()
 
-	_ = godotenv.Load(".ENV")
+	_ = godotenv.Load(".env")
 	env = os.Getenv("APP_ENV")
 
 	if *flags != "" {
